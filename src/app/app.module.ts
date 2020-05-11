@@ -1,3 +1,4 @@
+import { TemplateFormModule } from './template-form/template-form.module';
 import { DataFormComponent } from './data-form/data-form.component';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,20 +8,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TemplateFormComponent } from './template-form/template-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DataFormComponent,
-    TemplateFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    TemplateFormModule,
     NgbModule,
   ],
   providers: [],

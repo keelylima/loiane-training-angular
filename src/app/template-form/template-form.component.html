@@ -7,7 +7,7 @@
   
       <div class="col-sm-12">
         <input type="text" class="form-control" 
-          id="nome" placeholder="Nome" name="nome" ngModel>
+          id="nome" placeholder="Nome" name="nome" [(ngModel)]="usuario.nome">
        </div>
     </div>
   
@@ -17,7 +17,7 @@
       </div>
       <div class="col-sm-12">
         <input type="email" class="form-control"
-          id="email" placeholder="nome@email.com" name="email" ngModel>
+          id="email" placeholder="nome@email.com" name="email" [(ngModel)]="usuario.email">
       </div>
     </div>
 
