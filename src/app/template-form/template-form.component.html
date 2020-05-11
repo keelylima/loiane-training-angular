@@ -33,7 +33,7 @@
         <label for="CEP" class="control-label">CEP</label>
         <input type="text" class="form-control" id="cep" placeholder="" name="cep" ngModel required #cep="ngModel"
           [ngClass]="aplicaCssErro(cep)"
-          (blur)="consultaCep($event.target.value)">
+          (blur)="consultaCep($event.target.value, f)">
 
         <app-campo-control-erro [mostrarErro]="verificaValidTouched(cep)" msgErro="CEP é inválido.">
         </app-campo-control-erro>
