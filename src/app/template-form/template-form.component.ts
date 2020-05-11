@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-template-form',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent implements OnInit {
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+  }
 
   usuario: any = {
     nome: null,
@@ -18,9 +24,35 @@ export class TemplateFormComponent implements OnInit {
     //console.log(this.usuario)
   }
 
-  constructor() { }
+  verificaValidTouched(campo) {
+    return !campo.valid && campo.touched
+  }
 
-  ngOnInit(): void {
+  // aplicaCssErro(campo) {
+  //   return {
+  //     'is-invalid': !campo.valid && campo.touched
+  //   }
+  // }
+
+  //refatorado usando outro metodo
+  aplicaCssErro(campo) {
+    return {
+      'is-invalid': this.verificaValidTouched(campo)
+    }
+  }
+
+  consultaCep(cep) {
+    //retirar tudo que não for numero
+    cep = cep.replace(/\D/g, '');
+
+    let validaCep = /^[0-9]{8}$/;
+
+    if (validaCep.test(cep)) {
+      this.http.get(`//viacep.com.br/ws/${cep}/json`)
+      .subscribe(dados => {
+        console.log(dados)
+      });
+    }
   }
 
 }

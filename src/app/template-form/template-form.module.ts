@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { CampoControlErroComponent } from './../campo-control-erro/campo-control-erro.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -7,14 +9,16 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    TemplateFormComponent
+    TemplateFormComponent,
+    CampoControlErroComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   exports: [
-    TemplateFormComponent
+    TemplateFormComponent,
   ]
 })
 export class TemplateFormModule { }
